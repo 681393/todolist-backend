@@ -34,7 +34,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 		http.cors().and().csrf().disable().authorizeRequests()
 				.antMatchers("/", "/favicon.ico", "/**/*.png", "/**/*.gif", "/**/*.svg", "/**/*.jpg", "/**/*.html",
 						"/**/*.css", "/**/*.js")
-				.permitAll().antMatchers("/api/test", "/api/login", "/api/signup").permitAll().anyRequest().authenticated()
+				.permitAll().antMatchers("/api/login", "/api/signup").permitAll().anyRequest().authenticated()
 				.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
 		http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
