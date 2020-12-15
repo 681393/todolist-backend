@@ -27,7 +27,7 @@ public class JwtUtil {
 
 	private String createToken(String username, Map<String, Object> claims) {
 		return Jwts.builder().addClaims(claims).setSubject(username).setIssuedAt(new Date(System.currentTimeMillis()))
-				.setExpiration(new Date(System.currentTimeMillis() + 1000 * 60))
+				.setExpiration(new Date(System.currentTimeMillis() + 10000 * 60))
 				.signWith(SignatureAlgorithm.HS256, SECRET_KEY).compact();
 	}
 
